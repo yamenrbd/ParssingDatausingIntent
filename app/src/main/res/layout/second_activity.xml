@@ -12,7 +12,9 @@
         android:layout_marginTop="80dp"
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp"
-        android:id="@+id/userShow"/>
+        android:id="@+id/userShow"
+        android:textSize="24sp"
+        android:textAlignment="center"/>
 
     <TextView
         android:text="Welcome mr "
