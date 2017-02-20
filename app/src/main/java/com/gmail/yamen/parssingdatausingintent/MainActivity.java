@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     public EditText user ;
@@ -25,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
                 String name = user.getText().toString();
                 Intent intent = new Intent(getApplicationContext(),secondActivit.class);
                 intent.putExtra("userName",user.getText().toString());
-               // intent.putExtra("password",pass.getText().toString());
                 startActivity(intent);
+
              //  Toast.makeText(MainActivity.this,"hello mr "+name,Toast.LENGTH_LONG).show();
             }
         });
