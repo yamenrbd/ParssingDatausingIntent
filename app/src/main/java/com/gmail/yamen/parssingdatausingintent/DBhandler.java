@@ -22,14 +22,27 @@ public class DBhandler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTable ="(create table "+DATABASE_TABLE+"("+_ID+" integer primary key ,"+NAME+" text, "+PASSWORD+" text"+")";
+        String createTable ="(create table "+DATABASE_TABLE+ "("
+                +_ID+" integer primary key ,"
+                +NAME+" text, "
+                +PASSWORD+" text"+")";
+
         db.execSQL(createTable);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("drop table "+DATABASE_TABLE);
-        onCreate(db);
+        int version = oldVersion;
+        if(version ==1){
+            version=2;
+        }
+        if(version!=DATABASE_VERSION){
+            db.execSQL("drop table if exists "+DATABASE_TABLE);
+            onCreate(db);
+        }
+    }
+    public void deleteDatabase(Context context){
+        context.deleteDatabase(DATABASE_NAME);
     }
 
 }
